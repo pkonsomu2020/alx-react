@@ -24,3 +24,26 @@ export default function Login() {
         </div>
     )
 }
+
+const styles = StyleSheet.create({
+    AppBody: {
+        padding: '36px 24px'
+    },
+    AppBodyInput: {
+        padding: '0 16px 0 8px',
+        border: '1px solid #D3D3D3',
+        borderRadius: '3px'
+    },
+    AppBodyLabel: {
+        marginRight: '5px'
+    },
+    AppBodyForm: {
+        display: 'flex',
+        gap: '1rem'
+    },
+    AppBodyButton: {
+        border: '1px solid #D3D3D3',
+        borderRadius: '3px',
+        background: 'transparent'
+    }
+})
