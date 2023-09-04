@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Notifications from '../Notifications/Notifications';
@@ -7,6 +6,9 @@ import Login from '../Login/Login';
 import CourseList from '../CourseList/CourseList';
 import PropTypes from 'prop-types';
 import { getLatestNotification } from '../utils/utils';
+import BodySection from '../BodySection/BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import { StyleSheet, css } from 'aphrodite';
 
 
 class App extends React.Component {
@@ -54,15 +56,32 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Notifications listNotifications={this.state.listNotifications}/>
-        <div className="App">
+        <div className={css(styles.App)}>
           <Header />
-          {this.props.isLoggedIn ? <CourseList listCourses={this.state.listCourses}/> : <Login />}
+          {this.props.isLoggedIn ?
+            <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={this.state.listCourses}/></BodySectionWithMarginBottom>
+          : 
+            <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>
+          }
+          <BodySection title="News from the School">
+            <p>
+              A town hall different from bala blu, blue blu bulaba. broom broom broom brooooooooom. Bala blu blue blu bulaba. The farmers will make more money. Your lunch will not be imported, cassava garri ewa and ehhh ehhhhnn. The farmer will make money, the dinner would be cassava, eba, ewa and everything.
+            </p>
+          </BodySection>
           <Footer />
         </div>
       </React.Fragment>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  App: {
+    margin: '0 auto',
+    padding: '2px 8px',
+    minHeight: '100%',
+  }
+})
 
 App.defaultProps = {
   isLoggedIn: false,
