@@ -10,3 +10,18 @@ export default function Header() {
         </header>
     );
 }
+
+const styles = StyleSheet.create({
+    AppHeader: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'left',
+        borderBottom: '3px solid #e1484c'
+    },
+    AppHeaderImg: {
+        width: 150
+    },
+    AppHeaderH1: {
+        color: '#e1484c'
+    }
+})
